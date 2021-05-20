@@ -2,7 +2,7 @@
 
 This is the codebook for our Customized version of UCI's [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
-For more information on the underlying dataset, see its [documentation](data/UCI HAR Set/README.txt).
+For more information on the underlying dataset, see its [documentation](data/UCI%20HAR%20Set/README.txt).
 
 The first set is a tidy version of the data, joining the test/train sets, unique identifiers added, and with better column names.
 
