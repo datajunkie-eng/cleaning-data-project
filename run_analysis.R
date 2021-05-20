@@ -9,9 +9,8 @@
 ### 2. aggregate - takes the output from load.activity.sets, groups by 
 ###   activityname and subjectid, then takes the average of the measurements columns
 
-### NOTE: this script assumes the unzipped dataset is found below the "data" 
-###   directory.  There is a companion script, fetchdata.R, which will download
-###   and unzip from the source url
+### NOTE: this script assumes the presence of getdata_projectfiles_UCI HAR Dataset.zip,
+###   which contains all the samsung data
 
 library(dplyr)
 
@@ -135,6 +134,13 @@ aggregate <- function (data) {
       fftbodygyroscopezstd=mean(fftbodygyroscopezstd))
   }
 
-# gathers the data into variables
-combined <- load.activity.sets("data/UCI HAR Dataset")
-aggregated <- aggregate(combined)
+go <- function() {
+  unzip("getdata_projectfiles_UCI HAR Dataset.zip")
+  combined <- load.activity.sets("UCI HAR Dataset")
+  aggregated <- aggregate(combined)
+
+  write.table(combined, "tidy.txt", row.names = FALSE)
+  write.table(aggregated, "aggregated.txt", row.names = FALSE)
+}
+
+go()
